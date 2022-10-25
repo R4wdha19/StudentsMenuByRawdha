@@ -278,7 +278,6 @@ public class Main {
 							if (mProblem == 1) {
 								System.out.println("Enter The Number To Be Factored ");
 								Integer num = sc.nextInt();
-								
 								BigInteger fact = factorial(num);
 								System.out.println("The Factorial of " + num + " is: " + fact);
 							} else if (mProblem == 2) {
@@ -287,6 +286,8 @@ public class Main {
 						}
 						break;
 
+						
+						
 					}
 
 				} while (exit);
