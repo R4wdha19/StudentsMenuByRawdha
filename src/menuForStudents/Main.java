@@ -273,16 +273,34 @@ public class Main {
 							System.out.println("\t Choose A Mathematical Problem :");
 							System.out.println(" \t 1 : Get The Factorial Of A Number ");
 							System.out.println(" \t 2 : Get The Fibonacci Of A Number ");
+							System.out.println(" \t 3 : If You Are Done Press 3 To Exit  ");
 							int mProblem = sc.nextInt();
 							if (mProblem == 1) {
 								System.out.println("Enter The Number To Be Factored ");
 								Integer num = sc.nextInt();
 								BigInteger fact = factorial(num);
 								System.out.println("The Factorial of " + num + " is: " + fact);
-							} else if (mProblem == 2) {
-								System.out.println("Enter The Number To Get Its Fibonacci");
+							} else if (mProblem == 2) {			
+								System.out.println("Enter The Length Of Your Fibonacci");
+								int fibLength=sc.nextInt();
+								System.out.println("Enter The First Number");
+								int num1=sc.nextInt();
+								System.out.println("Enter The Second Number");
+								int num2=sc.nextInt();
+								int num3;
+								System.out.println(num1+" "+num2);
+								for (int i=0;i<fibLength;i++) {
+									num3=num1+num2;
+									num1=num2;
+									num2=num3;
+									System.out.println(num3);
+								}
+							}else if (mProblem == 3) {
+								myMaths=false;
 							}
-						}
+							
+							}
+						
 						break;
 
 						
