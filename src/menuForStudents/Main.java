@@ -182,7 +182,8 @@ public class Main {
 //        	 mark1.setmarkOfAssignment3(ma2);
 								System.out.println("Enter Mark Of Test1 :");
 								Integer mt = sc.nextInt();
-								st1.push(mt);
+								String mOfT1=Integer.toString(mt);
+								st1.push(mOfT1);
 								mark1.setmarkOfTest1(mt);
 //        	 System.out.println("Enter Mark Of Test2 :");
 //        	 Integer mt1=sc.nextInt();
