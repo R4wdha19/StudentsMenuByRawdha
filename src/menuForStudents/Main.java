@@ -208,12 +208,14 @@ public class Main {
 										+ "Please Press 1 If You Want To add More Students \n"
 										+ "Please press 0 To Exit");
 								Integer s = sc.nextInt();
+								st1.push(s);
 								if (s == 0) {
 									studentDetails = false;
 									System.out.println("Would You Like To Add A New School ?"
 											+ "Please Press 1 If You Want To add New School \n"
 											+ "Please press 0 To Exit");
 									Integer a = sc.nextInt();
+									st1.push(a);
 									if (a == 0) {
 										userNeed = false;
 
