@@ -25,7 +25,7 @@ public class Main {
 		boolean exit = true;
 		boolean studentDetails = true;
 		boolean myCurrency = true;
-		Stack st1 = new Stack();
+		Stack<String> st1 = new Stack<>();
 		HashSet<String> emails = new HashSet<>();
 		int currency;
 		String currencyName = " ";
@@ -91,7 +91,8 @@ public class Main {
 							school1.setSchoolName(schN);
 							System.out.println("Enter School Registrtaion Number :");
 							Integer regN = sc.nextInt();
-							st1.push(regN);
+							String ScoolReg=Integer.toString(regN);
+							st1.push(ScoolReg);
 							school1.setSchoolRegisterationNumber(regN);
 
 							List<Student> myStudents = new ArrayList<>();
@@ -104,7 +105,8 @@ public class Main {
 								student1.setnameOfStudent(stdN);
 								System.out.println("Enter Student Id :");
 								Integer sId = sc.nextInt();
-								st1.push(sId);
+								String stdidS=Integer.toString(sId);
+								st1.push(stdidS);
 								student1.setidOfStudent(sId);
 								System.out.println("Enter Student Date Of Birth :");
 								String sDop = sc.next();
@@ -158,7 +160,8 @@ public class Main {
 								subject1.setnameOfSubject(sSn);
 								System.out.println("Enter Student Subject Id :");
 								Integer sSi = sc.nextInt();
-								st1.push(sSi);
+								String subId=Integer.toString(sSi);
+								st1.push(subId);
 								subject1.setidOfSubject(sSi);
 
 								List<Mark> myMarks = new ArrayList<>();
@@ -166,7 +169,8 @@ public class Main {
 								Mark mark1 = new Mark();
 								System.out.println("Enter Mark Of Assignment1 :");
 								Integer ma = sc.nextInt();
-								st1.push(ma);
+								String m=Integer.toString(ma);
+								st1.push(m);
 //        	 mark1.setmarkOfAssignment1(ma);
 //        	 System.out.println("Enter Mark Of Assignment2 :");
 //        	 Integer ma1=sc.nextInt();
@@ -208,14 +212,17 @@ public class Main {
 										+ "Please Press 1 If You Want To add More Students \n"
 										+ "Please press 0 To Exit");
 								Integer s = sc.nextInt();
-								st1.push(s);
+								String moreS=Integer.toString(s);
+								st1.push(moreS);
 								if (s == 0) {
 									studentDetails = false;
 									System.out.println("Would You Like To Add A New School ?"
 											+ "Please Press 1 If You Want To add New School \n"
 											+ "Please press 0 To Exit");
 									Integer a = sc.nextInt();
-									st1.push(a);
+									String moreSh=Integer.toString(a);
+									st1.push(moreSh);
+									
 									if (a == 0) {
 										userNeed = false;
 
@@ -277,19 +284,31 @@ public class Main {
 							System.out.println(" \t 2 : Get The Fibonacci Of A Number ");
 							System.out.println(" \t 3 : If You Are Done Press 3 To Exit  ");
 							int mProblem = sc.nextInt();
+							String mP=Integer.toString(mProblem);
+							st1.push(mP);
 							if (mProblem == 1) {
 								System.out.println("Enter The Number To Be Factored ");
 								Integer num = sc.nextInt();
+								String n=Integer.toString(num);
+								st1.push(n);
 								BigInteger fact = factorial(num);
 								System.out.println("The Factorial of " + num + " is: " + fact);
 							} else if (mProblem == 2) {			
 								System.out.println("Enter The Length Of Your Fibonacci");
 								int fibLength=sc.nextInt();
+								String fL=Integer.toString(fibLength);
+								st1.push(fL);
 								System.out.println("Enter The First Number");
 								int num1=sc.nextInt();
+								String n1=Integer.toString(num1);
+								st1.push(n1);
 								System.out.println("Enter The Second Number");
 								int num2=sc.nextInt();
+								String n2=Integer.toString(num2);
+								st1.push(n2);
 								int num3;
+								String n3=Integer.toString(num3);
+								st1.push(n3);
 								System.out.println(num1+" "+num2);
 								for (int i=0;i<fibLength;i++) {
 									num3=num1+num2;
