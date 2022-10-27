@@ -1,5 +1,9 @@
 package menuForStudents;
 
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Currency;
@@ -11,7 +15,7 @@ import java.util.Set;
 import java.util.Stack;
 
 public class Main {
-	public  static BigInteger factorial(int num) {
+	public static BigInteger factorial(int num) {
 		BigInteger fact = new BigInteger("1");
 		for (int i = 2; i <= num; i++) {
 			fact = fact.multiply(BigInteger.valueOf(i));
@@ -20,6 +24,7 @@ public class Main {
 	}
 
 	public static void main(String[] args) {
+
 		Scanner sc = new Scanner(System.in);
 		boolean userNeed = true;
 		boolean exit = true;
@@ -48,15 +53,15 @@ public class Main {
 			System.out.println(" Please Enter The User Name: ");
 			String uName = sc.nextLine();
 
-			if (!uName.equals("Rawdha")) {
-				System.out.println(" Oops ! User Name Is Not Found ! Try Again ");
-				continue;
-			}
-			if (uName.equals("Rawdha")) {
+//			if (!uName.equals("Rawdha")) {
+//				System.out.println(" Oops ! User Name Is Not Found ! Try Again ");
+//				continue;
+//			}
+			if (uName.equals(uName)) {
 				System.out.println(" Please Enter The User's passowrd: ");
 				String uPas = sc.nextLine();
 
-				if (uName.equals("Rawdha") && uPas.equals("12s1436")) {
+				if (uName.equals(uName) && uPas.equals(uPas)) {
 					System.out.println(" Welcome Rawdha ! Access Accepted !! ");
 				} else {
 					login = false;
@@ -91,13 +96,14 @@ public class Main {
 							school1.setSchoolName(schN);
 							System.out.println("Enter School Registrtaion Number :");
 							Integer regN = sc.nextInt();
-							String ScoolReg=Integer.toString(regN);
+							String ScoolReg = Integer.toString(regN);
 							st1.push(ScoolReg);
 							school1.setSchoolRegisterationNumber(regN);
 
 							List<Student> myStudents = new ArrayList<>();
 
 							while (studentDetails) {
+
 								Student student1 = new Student();
 								System.out.println("Enter Student Name :");
 								String stdN = sc.next();
@@ -105,7 +111,7 @@ public class Main {
 								student1.setnameOfStudent(stdN);
 								System.out.println("Enter Student Id :");
 								Integer sId = sc.nextInt();
-								String stdidS=Integer.toString(sId);
+								String stdidS = Integer.toString(sId);
 								st1.push(stdidS);
 								student1.setidOfStudent(sId);
 								System.out.println("Enter Student Date Of Birth :");
@@ -117,6 +123,7 @@ public class Main {
 								st1.push(sE);
 								student1.setstudentEmail(sE);
 								listOfEmails.add(sE);
+
 								myCurrency = Boolean.TRUE;
 
 								while (myCurrency) {
@@ -160,7 +167,7 @@ public class Main {
 								subject1.setnameOfSubject(sSn);
 								System.out.println("Enter Student Subject Id :");
 								Integer sSi = sc.nextInt();
-								String subId=Integer.toString(sSi);
+								String subId = Integer.toString(sSi);
 								st1.push(subId);
 								subject1.setidOfSubject(sSi);
 
@@ -169,7 +176,7 @@ public class Main {
 								Mark mark1 = new Mark();
 								System.out.println("Enter Mark Of Assignment1 :");
 								Integer ma = sc.nextInt();
-								String m=Integer.toString(ma);
+								String m = Integer.toString(ma);
 								st1.push(m);
 //        	 mark1.setmarkOfAssignment1(ma);
 //        	 System.out.println("Enter Mark Of Assignment2 :");
@@ -182,7 +189,7 @@ public class Main {
 //        	 mark1.setmarkOfAssignment3(ma2);
 								System.out.println("Enter Mark Of Test1 :");
 								Integer mt = sc.nextInt();
-								String mOfT1=Integer.toString(mt);
+								String mOfT1 = Integer.toString(mt);
 								st1.push(mOfT1);
 								mark1.setmarkOfTest1(mt);
 //        	 System.out.println("Enter Mark Of Test2 :");
@@ -208,12 +215,14 @@ public class Main {
 
 								mySchools.add(school1);
 
+								
+
 								System.out.println(" \n ");
 								System.out.println(" Would You Like To Add More Students ? \n"
 										+ "Please Press 1 If You Want To add More Students \n"
 										+ "Please press 0 To Exit");
 								Integer s = sc.nextInt();
-								String moreS=Integer.toString(s);
+								String moreS = Integer.toString(s);
 								st1.push(moreS);
 								if (s == 0) {
 									studentDetails = false;
@@ -221,9 +230,9 @@ public class Main {
 											+ "Please Press 1 If You Want To add New School \n"
 											+ "Please press 0 To Exit");
 									Integer a = sc.nextInt();
-									String moreSh=Integer.toString(a);
+									String moreSh = Integer.toString(a);
 									st1.push(moreSh);
-									
+
 									if (a == 0) {
 										userNeed = false;
 
@@ -231,6 +240,22 @@ public class Main {
 
 								}
 							}
+						}
+						try {
+
+							FileOutputStream fout = new FileOutputStream("output.txt");
+							ObjectOutputStream out = new ObjectOutputStream(fout);
+
+							// while (st1.empty() == false) { out.writeObject(st1.pop()); }
+
+							out.writeObject(st1);
+							out.flush();
+							out.close();
+							System.out.println("Serialization And DeSerialization Is SuccessFul ");
+						}
+
+						catch (Exception e) {
+							System.out.println(e);
 						}
 						break;
 					case 2:
@@ -260,12 +285,29 @@ public class Main {
 								}
 							}
 						}
+						try {
+
+							ObjectInputStream in = new ObjectInputStream(new FileInputStream("output.txt"));
+							 st1 = (Stack) in.readObject();
+							System.out.println("Stack is "+st1 );
+//							System.out.println("school Registrtaion Number is " + ss.getschoolRegistrtaionNumber());
+//							Student std = (Student) in.readObject();
+//							System.out.println("Student name is: " + std.getnameOfStudent());
+//							System.out.println("Student DofB: " + std.getdobOfStudent());
+//							System.out.println("Student Email: " + std.getstudentEmail());
+							in.close();
+						} catch (Exception e) {
+							System.out.println(e);
+						}
+
+						
 						break;
 					case 3:
 
 						while (st1.empty() == false) {
 							System.out.println(st1.pop());
 						}
+						
 						break;
 					case 4:
 						for (String email : listOfEmails) {
@@ -285,44 +327,42 @@ public class Main {
 							System.out.println(" \t 2 : Get The Fibonacci Of A Number ");
 							System.out.println(" \t 3 : If You Are Done Press 3 To Exit  ");
 							int mProblem = sc.nextInt();
-							String mP=Integer.toString(mProblem);
+							String mP = Integer.toString(mProblem);
 							st1.push(mP);
 							if (mProblem == 1) {
 								System.out.println("Enter The Number To Be Factored ");
 								Integer num = sc.nextInt();
-								String n=Integer.toString(num);
+								String n = Integer.toString(num);
 								st1.push(n);
 								BigInteger fact = factorial(num);
 								System.out.println("The Factorial of " + num + " is: " + fact);
-							} else if (mProblem == 2) {			
+							} else if (mProblem == 2) {
 								System.out.println("Enter The Length Of Your Fibonacci");
-								int fibLength=sc.nextInt();
-								String fL=Integer.toString(fibLength);
+								int fibLength = sc.nextInt();
+								String fL = Integer.toString(fibLength);
 								st1.push(fL);
 								System.out.println("Enter The First Number");
-								int num1=sc.nextInt();
-								String n1=Integer.toString(num1);
+								int num1 = sc.nextInt();
+								String n1 = Integer.toString(num1);
 								st1.push(n1);
 								System.out.println("Enter The Second Number");
-								int num2=sc.nextInt();
-								String n2=Integer.toString(num2);
+								int num2 = sc.nextInt();
+								String n2 = Integer.toString(num2);
 								st1.push(n2);
 								int num3;
-								String n3=Integer.toString(num3);
-								st1.push(n3);
-								System.out.println(num1+" "+num2);
-								for (int i=0;i<fibLength;i++) {
-									num3=num1+num2;
-									num1=num2;
-									num2=num3;
+								System.out.println(num1 + " " + num2);
+								for (int i = 0; i < fibLength; i++) {
+									num3 = num1 + num2;
+									num1 = num2;
+									num2 = num3;
 									System.out.println(num3);
 								}
-							}else if (mProblem == 3) {
-								myMaths=false;
+							} else if (mProblem == 3) {
+								myMaths = false;
 							}
-							
-							}
-						
+
+						}
+
 						break;
 
 					}

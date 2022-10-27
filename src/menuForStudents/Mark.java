@@ -1,6 +1,8 @@
 package menuForStudents;
 
-public class Mark {
+import java.io.Serializable;
+
+public class Mark implements Serializable {
 	private   int markOfAssignment1;
 //	private   int markOfAssignment2;
 //	private   int markOfAssignment3;

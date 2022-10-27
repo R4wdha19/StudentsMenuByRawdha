@@ -1,9 +1,10 @@
 package menuForStudents;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Student {
+public class Student implements Serializable {
 	/*
 	 * private int englishM; private int scienceM; String studentN; String
 	 * studentAge; private int mathM;

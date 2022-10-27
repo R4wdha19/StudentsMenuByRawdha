@@ -1,9 +1,10 @@
 package menuForStudents;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Subject {
+public class Subject implements Serializable {
 	
 	private String nameOfSubject;
 	private Integer idOfSubject;
