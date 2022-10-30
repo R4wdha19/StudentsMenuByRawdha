@@ -8,18 +8,13 @@ public class Subject implements Serializable {
 	
 	private String nameOfSubject;
 	private Integer idOfSubject;
-
-	
-	  List<Mark> markList = new ArrayList<>();
-	 
+	List<Mark> markList = new ArrayList<>();
 	
 	//Getters and Setters
-	
-	
+
 	  public void setmarkList (List<Mark> markList) { 
 		  this.markList = markList; 
 		  }
-	 
 	
 	public void setnameOfSubject(String nameOfSubject) {
 		this.nameOfSubject = nameOfSubject;
@@ -28,7 +23,7 @@ public class Subject implements Serializable {
 	public void setidOfSubject(Integer idOfSubject) {
 		this.idOfSubject = idOfSubject;
 	}
-
+	
 	   public String getnameOfSubject(){
 		return nameOfSubject;
 	}
