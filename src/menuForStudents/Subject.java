@@ -8,7 +8,7 @@ public class Subject implements Serializable {
 	
 	private String nameOfSubject;
 	private Integer idOfSubject;
-//	private Mark mark;
+
 	
 	  List<Mark> markList = new ArrayList<>();
 	 
@@ -28,21 +28,14 @@ public class Subject implements Serializable {
 	public void setidOfSubject(Integer idOfSubject) {
 		this.idOfSubject = idOfSubject;
 	}
-//	public void setmark(Mark mark) {
-//		this.mark = mark;
-//	}
-	
-	
+
 	   public String getnameOfSubject(){
 		return nameOfSubject;
 	}
 	   public Integer getidOfSubject(){
 		return idOfSubject;
 	}
-//	   public Mark getmark(){
-//			return mark;
-//		}
-	
+
 	  public List<Mark> getmarkList(){
 		  return markList; 
 		  }
