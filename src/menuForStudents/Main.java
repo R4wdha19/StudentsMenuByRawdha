@@ -53,15 +53,15 @@ public class Main {
 			System.out.println(" Please Enter The User Name: ");
 			String uName = sc.nextLine();
 
-//			if (!uName.equals("Rawdha")) {
-//				System.out.println(" Oops ! User Name Is Not Found ! Try Again ");
-//				continue;
-//			}
-			if (uName.equals(uName)) {
+			if (!uName.equals("Rawdha")) {
+				System.out.println(" Oops ! User Name Is Not Found ! Try Again ");
+				continue;
+			}
+			if (uName.equals("Rawdha")) {
 				System.out.println(" Please Enter The User's passowrd: ");
 				String uPas = sc.nextLine();
 
-				if (uName.equals(uName) && uPas.equals(uPas)) {
+				if (uName.equals(uName) && uPas.equals("12s1436")) {
 					System.out.println(" Welcome Rawdha ! Access Accepted !! ");
 				} else {
 					login = false;
@@ -320,7 +320,9 @@ public class Main {
 								int num2 = sc.nextInt();
 								String n2 = Integer.toString(num2);
 								st1.push(n2);
-								int num3;
+								int num3 = 0;
+								String n3 = Integer.toString(num3);
+								st1.push(n3);
 								System.out.println(num1 + " " + num2);
 								for (int i = 0; i < fibLength; i++) {
 									num3 = num1 + num2;
