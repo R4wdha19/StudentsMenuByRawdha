@@ -5,16 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Student implements Serializable {
-	/*
-	 * private int englishM; private int scienceM; String studentN; String
-	 * studentAge; private int mathM;
-	 * 
-	 * void setMark(int m){ mathM=m; } int getMark(){ return mathM; }
-	 * 
-	 * void setMarke(int n){ englishM=n; } int getMarke(){ return englishM; } void
-	 * setMarks(int r){ scienceM=r; } int getMarks(){ return scienceM; }
-	 */
-
+	
 	private String nameOfStudent;
 	private Integer idOfStudent;
 	private String dobOfStudent;
