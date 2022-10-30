@@ -8,8 +8,7 @@ public class School implements Serializable {
 
 	private String schoolName;
 	private Integer schoolRegistrtaionNumber;
-	 List<Student> listStudents = new ArrayList<>();
-//	private Student student;
+	List<Student> listStudents = new ArrayList<>();
 
 	// Create Getters and Setters
 
@@ -21,11 +20,6 @@ public class School implements Serializable {
 		this.schoolRegistrtaionNumber = schoolRegistrtaionNumber;
 	}
 
-//	public void setstudent(Student student) {
-//		this.student = student;
-//	}
-
-	
 	  public void setListStudents (List<Student> listStudents) {
 		  this.listStudents= listStudents; 
 		  }
@@ -34,17 +28,11 @@ public class School implements Serializable {
 		return schoolName;
 	}
 
-	
 	  public List<Student> getListStudents(){
 		  return listStudents;
 		  }
 	 
-
 	public Integer getschoolRegistrtaionNumber() {
 		return schoolRegistrtaionNumber;
 	}
-
-//	public Student getstudent() {
-//		return student;
-//	}
 }
