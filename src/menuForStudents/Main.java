@@ -290,11 +290,6 @@ public class Main {
 							ObjectInputStream in = new ObjectInputStream(new FileInputStream("output.txt"));
 							 st1 = (Stack) in.readObject();
 							System.out.println("Stack is "+st1 );
-//							System.out.println("school Registrtaion Number is " + ss.getschoolRegistrtaionNumber());
-//							Student std = (Student) in.readObject();
-//							System.out.println("Student name is: " + std.getnameOfStudent());
-//							System.out.println("Student DofB: " + std.getdobOfStudent());
-//							System.out.println("Student Email: " + std.getstudentEmail());
 							in.close();
 						} catch (Exception e) {
 							System.out.println(e);
