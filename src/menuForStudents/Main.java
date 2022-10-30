@@ -48,30 +48,46 @@ public class Main {
 				+ "\t All Your Data and modify It Any Time and Anywhere !\n \t Please Provide Your Us With Information ! "
 				+ " \n \t To Start The Journey Select One Of The Options Provided Below Please  ! ");
 		System.out.println(" \n ");
+
 		Boolean login = true;
 		while (login = true) {
-			System.out.println(" Please Enter The User Name: ");
+			System.out.println("\n Please Enter The User Name: ");
 			String uName = sc.nextLine();
 
-			if (!uName.equals("Rawdha")) {
-				System.out.println(" Oops ! User Name Is Not Found ! Try Again ");
+			try {
+				if (!uName.equals("Rawdha")) {
+					//System.out.println(" Oops ! User Name Is Not Found ! Try Again ");
+					throw new Exception("User Name Is Not Found");
+				}
+			} catch (Exception e) {
+				System.out.println("Exception : " + e.getMessage());
 				continue;
 			}
 			if (uName.equals("Rawdha")) {
 				System.out.println(" Please Enter The User's passowrd: ");
 				String uPas = sc.nextLine();
-
-				if (uName.equals(uName) && uPas.equals("12s1436")) {
-					System.out.println(" Welcome Rawdha ! Access Accepted !! ");
-				} else {
-					login = false;
-					System.out.println(" Access Denied ");
+              try {
+	          if (uName.equals(uName) && uPas.equals("12s1436")) {
+		      System.out.println(" Welcome Rawdha ! Access Accepted !! ");
+		      
+	          }
+           
+	          else {
+		           login = false;
+		           throw new Exception("Wrong Password");
+	          }
+	          }
+	          catch (Exception e) {
+					System.out.println("Exception : " + e.getMessage());
 					continue;
 				}
+}
+				
 				do {
 					System.out.println(" \n ");
 
 					System.out.println(" \t Select One Option : ");
+					System.out.println(" \t 0 : Write it to File ");
 					System.out.println(" \t 1 : My Students Details   ");
 					System.out.println(" \t 2 : Show Me My School Details ");
 					System.out.println(" \t 3 : Show Me My History ");
@@ -84,6 +100,22 @@ public class Main {
 					String option = sc.next();
 					int op = Integer.parseInt(option);
 					switch (op) {
+					case 0:
+						try {
+
+							FileOutputStream fout = new FileOutputStream("output.txt");
+							ObjectOutputStream out = new ObjectOutputStream(fout);
+							out.writeObject(st1);
+							out.flush();
+							out.close();
+							System.out.println("Serialization And DeSerialization Is SuccessFul ");
+						}
+
+						catch (Exception e) {
+							System.out.println(e);
+						}
+						break;
+
 					case 1:
 
 						while (userNeed) {
@@ -198,8 +230,6 @@ public class Main {
 
 								mySchools.add(school1);
 
-								
-
 								System.out.println(" \n ");
 								System.out.println(" Would You Like To Add More Students ? \n"
 										+ "Please Press 1 If You Want To add More Students \n"
@@ -224,6 +254,7 @@ public class Main {
 								}
 							}
 						}
+
 						try {
 
 							FileOutputStream fout = new FileOutputStream("output.txt");
@@ -240,45 +271,44 @@ public class Main {
 						break;
 					case 2:
 
-						for (School sch : mySchools) {
-							System.out.println("School Name Is:\t" + sch.getschoolName() + "\n"
-									+ "School Registration Number Is:\t" + sch.getschoolRegistrtaionNumber() + "\n");
-							for (Student std : sch.getListStudents()) {
-								System.out.println("Student Name Is:\t" + std.getnameOfStudent() + "\n"
-										+ "Student Id Is:\t" + std.getidOfStudent() + "\n"
-										+ "Student Date Of Birth Is:\t" + std.getdobOfStudent());
-
-								for (Subject sub : std.getlistSubjects()) {
-									System.out.println("Student Subject Name Is:\t" + sub.getnameOfSubject() + "\n"
-											+ "Student Subject Id Is:\t" + sub.getidOfSubject() + "\n");
-
-									for (Mark mar : sub.getmarkList()) {
-										System.out.println("Student Mark Of Assignment1 Is :\t"
-												+ mar.getmarkOfAssignment1() + "\n" +
-												"Student Mark Of Test1 Is :\t" + mar.getmarkOfTest1());
-									}
-
-								}
-							}
-						}
+//						for (School sch : mySchools) {
+//							System.out.println("School Name Is:\t" + sch.getschoolName() + "\n"
+//									+ "School Registration Number Is:\t" + sch.getschoolRegistrtaionNumber() + "\n");
+//							for (Student std : sch.getListStudents()) {
+//								System.out.println("Student Name Is:\t" + std.getnameOfStudent() + "\n"
+//										+ "Student Id Is:\t" + std.getidOfStudent() + "\n"
+//										+ "Student Date Of Birth Is:\t" + std.getdobOfStudent());
+//
+//								for (Subject sub : std.getlistSubjects()) {
+//									System.out.println("Student Subject Name Is:\t" + sub.getnameOfSubject() + "\n"
+//											+ "Student Subject Id Is:\t" + sub.getidOfSubject() + "\n");
+//
+//									for (Mark mar : sub.getmarkList()) {
+//										System.out.println(
+//												"Student Mark Of Assignment1 Is :\t" + mar.getmarkOfAssignment1() + "\n"
+//														+ "Student Mark Of Test1 Is :\t" + mar.getmarkOfTest1());
+//									}
+//
+//								}
+//							}
+//						}
 						try {
 
 							ObjectInputStream in = new ObjectInputStream(new FileInputStream("output.txt"));
-							 st1 = (Stack) in.readObject();
-							System.out.println("Stack is "+st1 );
+							Stack<String> stackFromFile = (Stack<String>) in.readObject();
+							System.out.println("Stack from File is " + stackFromFile);
 							in.close();
 						} catch (Exception e) {
 							System.out.println(e);
 						}
 
-						
 						break;
 					case 3:
 
 						while (st1.empty() == false) {
 							System.out.println(st1.pop());
 						}
-						
+
 						break;
 					case 4:
 						for (String email : listOfEmails) {
@@ -332,7 +362,7 @@ public class Main {
 									num2 = num3;
 									System.out.println(num3);
 								}
-							}else if (mProblem == 3) {
+							} else if (mProblem == 3) {
 								System.out.println("Enter The First Number");
 								int snum1 = sc.nextInt();
 								String sn1 = Integer.toString(snum1);
@@ -344,9 +374,9 @@ public class Main {
 								int snum3 = 0;
 								String sn3 = Integer.toString(snum3);
 								st1.push(sn3);
-								snum3=snum2-snum1;
+								snum3 = snum2 - snum1;
 								System.out.println("The result Of The Subtraction " + snum3);
-							}else if (mProblem == 4) {
+							} else if (mProblem == 4) {
 								System.out.println("Enter The First Number");
 								int anum1 = sc.nextInt();
 								String an1 = Integer.toString(anum1);
@@ -358,10 +388,9 @@ public class Main {
 								int anum3 = 0;
 								String an3 = Integer.toString(anum3);
 								st1.push(an3);
-								anum3=anum2+anum1;
+								anum3 = anum2 + anum1;
 								System.out.println("The result Of The Addition " + anum3);
-							}
-							else if (mProblem == 0) {
+							} else if (mProblem == 0) {
 								myMaths = false;
 							}
 
@@ -372,7 +401,7 @@ public class Main {
 					}
 
 				} while (exit);
-			}
+			
 			login = false;
 			System.out.println(" Access Denied ");
 
@@ -380,3 +409,4 @@ public class Main {
 
 	}
 }
+
