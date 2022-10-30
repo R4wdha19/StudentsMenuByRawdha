@@ -296,7 +296,9 @@ public class Main {
 							System.out.println("\t Choose A Mathematical Problem :");
 							System.out.println(" \t 1 : Get The Factorial Of A Number ");
 							System.out.println(" \t 2 : Get The Fibonacci Of A Number ");
-							System.out.println(" \t 3 : If You Are Done Press 3 To Exit  ");
+							System.out.println(" \t 3 : Get The Subtraction Of Two Numbers ");
+							System.out.println(" \t 4 : Get The Addition Of Two Numbers ");
+							System.out.println(" \t 0 : If You Are Done Press 0 To Exit  ");
 							int mProblem = sc.nextInt();
 							String mP = Integer.toString(mProblem);
 							st1.push(mP);
@@ -330,7 +332,36 @@ public class Main {
 									num2 = num3;
 									System.out.println(num3);
 								}
-							} else if (mProblem == 3) {
+							}else if (mProblem == 3) {
+								System.out.println("Enter The First Number");
+								int snum1 = sc.nextInt();
+								String sn1 = Integer.toString(snum1);
+								st1.push(sn1);
+								System.out.println("Enter The Second Number");
+								int snum2 = sc.nextInt();
+								String sn2 = Integer.toString(snum2);
+								st1.push(sn2);
+								int snum3 = 0;
+								String sn3 = Integer.toString(snum3);
+								st1.push(sn3);
+								snum3=snum2-snum1;
+								System.out.println("The result Of The Subtraction " + snum3);
+							}else if (mProblem == 4) {
+								System.out.println("Enter The First Number");
+								int anum1 = sc.nextInt();
+								String an1 = Integer.toString(anum1);
+								st1.push(an1);
+								System.out.println("Enter The Second Number");
+								int anum2 = sc.nextInt();
+								String an2 = Integer.toString(anum2);
+								st1.push(an2);
+								int anum3 = 0;
+								String an3 = Integer.toString(anum3);
+								st1.push(an3);
+								anum3=anum2+anum1;
+								System.out.println("The result Of The Addition " + anum3);
+							}
+							else if (mProblem == 0) {
 								myMaths = false;
 							}
 
