@@ -178,28 +178,11 @@ public class Main {
 								Integer ma = sc.nextInt();
 								String m = Integer.toString(ma);
 								st1.push(m);
-//        	 mark1.setmarkOfAssignment1(ma);
-//        	 System.out.println("Enter Mark Of Assignment2 :");
-//        	 Integer ma1=sc.nextInt();
-//        	 st1.push(ma1);
-//        	 mark1.setmarkOfAssignment2(ma1);
-//        	 System.out.println("Enter Mark Of Assignment3 :");
-//        	 Integer ma2=sc.nextInt();
-//        	 st1.push(ma2);
-//        	 mark1.setmarkOfAssignment3(ma2);
 								System.out.println("Enter Mark Of Test1 :");
 								Integer mt = sc.nextInt();
 								String mOfT1 = Integer.toString(mt);
 								st1.push(mOfT1);
 								mark1.setmarkOfTest1(mt);
-//        	 System.out.println("Enter Mark Of Test2 :");
-//        	 Integer mt1=sc.nextInt();
-//        	 st1.push(mt1);
-//        	 mark1.setmarkOfTest2(mt1);
-//        	 System.out.println("Enter Mark Of Test3 :");
-//        	 Integer mt2=sc.nextInt();
-//        	 st1.push(mt2);
-//        	 mark1.setmarkOfTest3(mt2);
 
 								myMarks.add(mark1);
 
@@ -245,9 +228,6 @@ public class Main {
 
 							FileOutputStream fout = new FileOutputStream("output.txt");
 							ObjectOutputStream out = new ObjectOutputStream(fout);
-
-							// while (st1.empty() == false) { out.writeObject(st1.pop()); }
-
 							out.writeObject(st1);
 							out.flush();
 							out.close();
@@ -275,11 +255,7 @@ public class Main {
 									for (Mark mar : sub.getmarkList()) {
 										System.out.println("Student Mark Of Assignment1 Is :\t"
 												+ mar.getmarkOfAssignment1() + "\n" +
-//				  "Student Mark Of Assignment2 Is:\t"+mar.getmarkOfAssignment2()+"\n"+
-//				  "Student Mark Of Assignment3 Is:\t"+mar.getmarkOfAssignment3()+"\n"+
 												"Student Mark Of Test1 Is :\t" + mar.getmarkOfTest1());
-//				  "Student Mark Of Test2 Is :\t"+mar.getmarkOfTest2()+"\n"+
-//				 "Student Mark Of Test3 Is :\t"+mar.getmarkOfTest3());
 									}
 
 								}
