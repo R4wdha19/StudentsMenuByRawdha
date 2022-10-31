@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import java.util.Currency;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 import java.util.Set;
@@ -67,7 +68,7 @@ public class Main {
 				System.out.println(" Please Enter The User's passowrd: ");
 				String uPas = sc.nextLine();
               try {
-	          if (uName.equals(uName) && uPas.equals("12s1436")) {
+	          if (uName.equals("Rawdha") && uPas.equals("12s1436")) {
 		      System.out.println(" Welcome Rawdha ! Access Accepted !! ");
 		      
 	          }
@@ -141,11 +142,20 @@ public class Main {
 								String stdN = sc.next();
 								st1.push(stdN);
 								student1.setnameOfStudent(stdN);
+							
+								try{
 								System.out.println("Enter Student Id :");
 								Integer sId = sc.nextInt();
 								String stdidS = Integer.toString(sId);
 								st1.push(stdidS);
 								student1.setidOfStudent(sId);
+						
+								}
+								catch(InputMismatchException e) {
+								System.out.println("\"This Id Contains Characters that are not accepted \"");	
+								continue;
+								}
+							
 								System.out.println("Enter Student Date Of Birth :");
 								String sDop = sc.next();
 								st1.push(sDop);
