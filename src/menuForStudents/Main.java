@@ -134,32 +134,35 @@ public class Main {
 							school1.setSchoolRegisterationNumber(regN);
 
 							List<Student> myStudents = new ArrayList<>();
-
+							String stdN="";	
+							Integer sId=0;
 							while (studentDetails) {
 
 								Student student1 = new Student();
 								System.out.println("Enter Student Name :");
-								String stdN = sc.next();
+								 stdN = sc.next();
 								st1.push(stdN);
 								student1.setnameOfStudent(stdN);
-							
+						
 								try{
 								System.out.println("Enter Student Id :");
-								Integer sId = sc.nextInt();
+								 sId = sc.nextInt();
 								String stdidS = Integer.toString(sId);
 								st1.push(stdidS);
 								student1.setidOfStudent(sId);
-						
+
 								}
 								catch(InputMismatchException e) {
 								System.out.println("\"This Id Contains Characters that are not accepted \"");	
+								sc.nextLine();
 								continue;
 								}
-							
+								
 								System.out.println("Enter Student Date Of Birth :");
 								String sDop = sc.next();
 								st1.push(sDop);
 								student1.setdobOfStudent(sDop);
+				
 								System.out.println("Enter Student Email :");
 								String sE = sc.next();
 								st1.push(sE);
