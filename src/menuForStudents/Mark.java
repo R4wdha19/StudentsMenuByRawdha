@@ -2,10 +2,13 @@ package menuForStudents;
 
 import java.io.Serializable;
 
-public class Mark implements Serializable {
+public class Mark implements MarkI {
 	private   int markOfAssignment1;
 	private   int markOfTest1;
-
+	@Override
+	public void getMark() {
+		System.out.println("Get the Total Marks ");
+	}
      
    //Getters and Setters
  	

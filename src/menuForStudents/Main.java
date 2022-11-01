@@ -228,7 +228,7 @@ public class Main {
 								String mOfT1 = Integer.toString(mt);
 								st1.push(mOfT1);
 								mark1.setmarkOfTest1(mt);
-
+								mark1.getMark();
 								myMarks.add(mark1);
 
 								subject1.setmarkList(myMarks);
