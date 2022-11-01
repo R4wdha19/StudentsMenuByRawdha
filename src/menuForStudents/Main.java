@@ -284,27 +284,27 @@ public class Main {
 						break;
 					case 2:
 
-//						for (School sch : mySchools) {
-//							System.out.println("School Name Is:\t" + sch.getschoolName() + "\n"
-//									+ "School Registration Number Is:\t" + sch.getschoolRegistrtaionNumber() + "\n");
-//							for (Student std : sch.getListStudents()) {
-//								System.out.println("Student Name Is:\t" + std.getnameOfStudent() + "\n"
-//										+ "Student Id Is:\t" + std.getidOfStudent() + "\n"
-//										+ "Student Date Of Birth Is:\t" + std.getdobOfStudent());
-//
-//								for (Subject sub : std.getlistSubjects()) {
-//									System.out.println("Student Subject Name Is:\t" + sub.getnameOfSubject() + "\n"
-//											+ "Student Subject Id Is:\t" + sub.getidOfSubject() + "\n");
-//
-//									for (Mark mar : sub.getmarkList()) {
-//										System.out.println(
-//												"Student Mark Of Assignment1 Is :\t" + mar.getmarkOfAssignment1() + "\n"
-//														+ "Student Mark Of Test1 Is :\t" + mar.getmarkOfTest1());
-//									}
-//
-//								}
-//							}
-//						}
+						for (School sch : mySchools) {
+							System.out.println("School Name Is:\t" + sch.getschoolName() + "\n"
+									+ "School Registration Number Is:\t" + sch.getschoolRegistrtaionNumber() + "\n");
+							for (Student std : sch.getListStudents()) {
+								System.out.println("Student Name Is:\t" + std.getnameOfStudent() + "\n"
+										+ "Student Id Is:\t" + std.getidOfStudent() + "\n"
+										+ "Student Date Of Birth Is:\t" + std.getdobOfStudent());
+
+								for (Subject sub : std.getlistSubjects()) {
+									System.out.println("Student Subject Name Is:\t" + sub.getnameOfSubject() + "\n"
+											+ "Student Subject Id Is:\t" + sub.getidOfSubject() + "\n");
+
+									for (Mark mar : sub.getmarkList()) {
+										System.out.println(
+												"Student Mark Of Assignment1 Is :\t" + mar.getmarkOfAssignment1() + "\n"
+														+ "Student Mark Of Test1 Is :\t" + mar.getmarkOfTest1());
+									}
+
+								}
+							}
+						}
 						try {
 
 							ObjectInputStream in = new ObjectInputStream(new FileInputStream("output.txt"));
