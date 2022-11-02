@@ -1,5 +1,7 @@
 package menuForStudents;
 
 public interface MarkI {
-public void getMark();
+public int getAssignmentTotalMark();
+public int getTestTotalMark();
+public void getStudentStatus();
 }
