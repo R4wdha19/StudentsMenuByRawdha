@@ -223,6 +223,12 @@ public class Main {
 								Integer ma = sc.nextInt();
 								String m = Integer.toString(ma);
 								st1.push(m);
+								mark1.setmarkOfAssignment1(ma);
+				        	 System.out.println("Enter Mark Of Assignment2 :");
+				        	 Integer ma1=sc.nextInt();
+				        	 String m1 = Integer.toString(ma1);
+					        	 st1.push(m1);
+					        	 mark1.setmarkOfAssignment2(ma1);
 								System.out.println("Enter Mark Of Test1 :");
 								Integer mt = sc.nextInt();
 								String mOfT1 = Integer.toString(mt);
@@ -299,7 +305,7 @@ public class Main {
 									for (Mark mar : sub.getmarkList()) {
 										System.out.println(
 												"Student Mark Of Assignment1 Is :\t" + mar.getmarkOfAssignment1() + "\n"
-														+ "Student Mark Of Test1 Is :\t" + mar.getmarkOfTest1());
+														+ "Student Mark Of Assignment2 Is:\t"+mar.getmarkOfAssignment2()+"\n"+ "Student Mark Of Test1 Is :\t" + mar.getmarkOfTest1());
 									}
 
 								}

@@ -1,13 +1,14 @@
 package menuForStudents;
 
-import java.io.Serializable;
-
 public class Mark implements MarkI {
 	private   int markOfAssignment1;
 	private   int markOfTest1;
+	private   int markOfAssignment2;
 	@Override
 	public void getMark() {
-		System.out.println("Get the Total Marks ");
+		int totalMark;
+		totalMark=markOfAssignment1+markOfAssignment2 ;
+		System.out.println(" The Total Assignment Marks :"+totalMark);
 	}
      
    //Getters and Setters
@@ -19,6 +20,13 @@ public class Mark implements MarkI {
  	public int getmarkOfAssignment1(){
 	 		return markOfAssignment1;
 	 	}
+ 	public void setmarkOfAssignment2(int markOfAssignment2) {
+		this.markOfAssignment2 = markOfAssignment2;
+ 	}
+ 	public int getmarkOfAssignment2(){
+		return markOfAssignment2;
+	}
+ 	
 
  	public void setmarkOfTest1(int markOfTest1) {
  		this.markOfTest1 = markOfTest1;
