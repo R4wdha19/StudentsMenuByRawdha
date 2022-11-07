@@ -6,16 +6,16 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 import java.math.BigInteger;
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.List;
+import java.util.Map;
 import java.util.Scanner;
-import java.util.Set;
 import java.util.Stack;
 
 public class Main {
+
 	public static BigInteger factorial(int num) {
 		BigInteger fact = new BigInteger("1");
 		for (int i = 2; i <= num; i++) {
@@ -35,8 +35,8 @@ public class Main {
 		HashSet<String> emails = new HashSet<>();
 		int currency;
 		String currencyName = " ";
-		HashMap<String, Double> studentsFees = new HashMap<>();
-		HashMap<String, HashMap<String, Double>> studentsFeesAmount = new HashMap<>();
+		Map<String, Double> studentsFees = new HashMap<>();
+		Map<String, Map<String, Double>> studentsFeesAmount = new HashMap<>();
 		Double studentFeesAmount = 0.0;
 		Double studentsFeesCalculatedAmount = 0.0;
 		Double amount;
@@ -58,7 +58,7 @@ public class Main {
 
 			try {
 				if (!uName.equals("Rawdha")) {
-					
+
 					throw new Exception(" Oops ! User Name Is Not Found ! Try Again ");
 				}
 			} catch (Exception e) {
@@ -125,25 +125,25 @@ public class Main {
 						School school1 = new School();
 						System.out.println("Enter School Name :");
 						studentDetails = true;// reseting the loop to true
-						String schN = sc.next();
-						st1.push(schN);
-						school1.setSchoolName(schN);
+						String schoolName = sc.next();
+						st1.push(schoolName);
+						school1.setSchoolName(schoolName);
 						System.out.println("Enter School Registrtaion Number :");
-						Integer regN = sc.nextInt();
-						String ScoolReg = Integer.toString(regN);
-						st1.push(ScoolReg);
-						school1.setSchoolRegisterationNumber(regN);
+						Integer registrtaionNum = sc.nextInt();
+						String ScoolRegistrtaionNum = Integer.toString(registrtaionNum);
+						st1.push(ScoolRegistrtaionNum);
+						school1.setSchoolRegisterationNumber(registrtaionNum);
 
 						List<Student> myStudents = new ArrayList<>();
-						String stdN = "";
+						String studentdName = "";
 						Integer sId = 0;
 						while (studentDetails) {
 
 							Student student1 = new Student();
 							System.out.println("Enter Student Name :");
-							stdN = sc.next();
-							st1.push(stdN);
-							student1.setnameOfStudent(stdN);
+							studentdName = sc.next();
+							st1.push(studentdName);
+							student1.setnameOfStudent(studentdName);
 
 							try {
 								System.out.println("Enter Student Id :");
@@ -171,30 +171,12 @@ public class Main {
 
 							myCurrency = Boolean.TRUE;
 
+							CurrencyInterface currencyManager = new Currency();
+
 							while (myCurrency) {
-								System.out.println("Choose Currency :");
-								System.out.println("1 : British pound");
-								System.out.println("2 : US dollar ");
-								System.out.println("3 : Swiss franc ");
-								System.out.println("4 : Japanese yen");
-								currency = sc.nextInt();
-								System.out.println("Enter Student's  Fees Amount :");
-								studentFeesAmount = sc.nextDouble();
-								if (currency == 1) {
-									currencyName = "British pound";
-									studentsFeesCalculatedAmount = studentFeesAmount * 2.28754;
-								} else if (currency == 2) {
-									currencyName = "US dollar";
-									studentsFeesCalculatedAmount = studentFeesAmount * 2.59503;
-								} else if (currency == 3) {
-									currencyName = "Swiss franc";
-									studentsFeesCalculatedAmount = studentFeesAmount * 2.59009;
-								} else if (currency == 4) {
-									currencyName = "Japanese yen";
-									studentsFeesCalculatedAmount = studentFeesAmount * 386.446;
-								}
-								studentsFees.put(currencyName, studentsFeesCalculatedAmount);
-								studentsFeesAmount.put(stdN, studentsFees);
+
+								currencyManager.showStudentFeesAmount(studentdName, studentsFees, studentsFeesAmount);
+
 								System.out.println("\t \n If You Want To Add A Currency Please Press 1 ");
 								System.out.println("\t If You Want To Exit Please Press 0 ");
 								int exitMyCurrencyLoop = sc.nextInt();
@@ -218,7 +200,6 @@ public class Main {
 
 							List<Mark> myMarks = new ArrayList<>();
 
-							
 							System.out.println("Enter Mark Of Assignment1 :");
 							Integer ma = sc.nextInt();
 							String m = Integer.toString(ma);
@@ -239,9 +220,7 @@ public class Main {
 							String mOfT2 = Integer.toString(mt1);
 							st1.push(mOfT2);
 							mark1.setmarkOfTest2(mt1);
-							
-							
-							
+
 							myMarks.add(mark1);
 
 							subject1.setmarkList(myMarks);
@@ -422,7 +401,7 @@ public class Main {
 
 					break;
 				case 7:
-					
+
 					mark1.getAssignmentTotalMark();
 					mark1.getTestTotalMark();
 					mark1.getStudentStatus();
