@@ -59,7 +59,7 @@ public class Main {
 			try {
 				if (!uName.equals("Rawdha")) {
 					// System.out.println(" Oops ! User Name Is Not Found ! Try Again ");
-					throw new Exception("User Name Is Not Found");
+					throw new Exception(" Oops ! User Name Is Not Found ! Try Again ");
 				}
 			} catch (Exception e) {
 				System.out.println("Exception : " + e.getMessage());
