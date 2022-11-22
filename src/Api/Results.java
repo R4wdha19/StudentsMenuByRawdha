@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Results implements Serializable {
 
-	private String gender;
+	String gender;
 	private String cell;
 	private String phone;
 	private String email;

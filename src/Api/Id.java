@@ -4,7 +4,7 @@ import java.io.Serializable;
 
 public class Id implements Serializable {
 	private String name;
-	private int value;
+	private String value;
 
 	// Setters And Getters
 
@@ -16,11 +16,11 @@ public class Id implements Serializable {
 		this.name = name;
 	}
 
-	public int getValue() {
+	public String getValue() {
 		return value;
 	}
 
-	public void setValue(int value) {
+	public void setValue(String value) {
 		this.value = value;
 	}
 

@@ -6,7 +6,7 @@ public class Location implements Serializable {
 	private String city;
 	private String state;
 	private String country;
-	private int postcode;
+	private String postcode;
 	private Street street;
 	private Coordinates coordinates;
 	private Timezone timezone;
@@ -37,11 +37,11 @@ public class Location implements Serializable {
 		this.country = country;
 	}
 
-	public int getPostcode() {
+	public String getPostcode() {
 		return postcode;
 	}
 
-	public void setPostcode(int postcode) {
+	public void setPostcode(String postcode) {
 		this.postcode = postcode;
 	}
 
