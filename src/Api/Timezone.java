@@ -1,6 +1,8 @@
 package Api;
 
-public class Timezone {
+import java.io.Serializable;
+
+public class Timezone implements Serializable {
 	private String offset;
 	private String description;
 

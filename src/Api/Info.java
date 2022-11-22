@@ -1,9 +1,11 @@
 package Api;
 
-public class Info {
-	private float results;
+import java.io.Serializable;
+
+public class Info implements Serializable {
+	private int results;
 	private String version;
-	private float page;
+	private int page;
 	private String seed;
 
 	// Setters And Getters
@@ -12,7 +14,7 @@ public class Info {
 		return results;
 	}
 
-	public void setResults(float results) {
+	public void setResults(int results) {
 		this.results = results;
 	}
 
@@ -28,7 +30,7 @@ public class Info {
 		return page;
 	}
 
-	public void setPage(float page) {
+	public void setPage(int page) {
 		this.page = page;
 	}
 

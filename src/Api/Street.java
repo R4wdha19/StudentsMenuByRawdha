@@ -1,6 +1,8 @@
 package Api;
 
-public class Street {
+import java.io.Serializable;
+
+public class Street implements Serializable {
 	private int number;
 	private String name;
 

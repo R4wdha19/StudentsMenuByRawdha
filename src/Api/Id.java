@@ -1,6 +1,8 @@
 package Api;
 
-public class Id {
+import java.io.Serializable;
+
+public class Id implements Serializable {
 	private String name;
 	private int value;
 

@@ -1,6 +1,8 @@
 package Api;
 
-public class Login {
+import java.io.Serializable;
+
+public class Login implements Serializable {
 	private String uuid;
 	private String username;
 	private String password;

@@ -1,6 +1,8 @@
 package Api;
 
-public class Location {
+import java.io.Serializable;
+
+public class Location implements Serializable {
 	private String city;
 	private String state;
 	private String country;

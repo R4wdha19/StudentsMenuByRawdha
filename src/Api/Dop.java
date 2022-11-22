@@ -1,8 +1,9 @@
 package Api;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Dop {
+public class Dop implements Serializable {
 	private Date date;
 	private int age;
 

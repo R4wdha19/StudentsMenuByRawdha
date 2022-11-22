@@ -1,6 +1,8 @@
 package Api;
 
-public class Name {
+import java.io.Serializable;
+
+public class Name implements Serializable {
 	private String title;
 	private String first;
 	private String last;

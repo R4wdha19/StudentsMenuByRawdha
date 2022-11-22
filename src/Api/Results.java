@@ -1,6 +1,8 @@
 package Api;
 
-public class Results {
+import java.io.Serializable;
+
+public class Results implements Serializable {
 
 	private String gender;
 	private String cell;
