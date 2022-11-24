@@ -13,6 +13,7 @@ public class Request {
 
 	public static void main(String[] args) throws IOException, InterruptedException {
 		Scanner sc = new Scanner(System.in);
+		Results results = new Results();
 
 		HttpClient client = HttpClient.newHttpClient();
 
@@ -21,6 +22,10 @@ public class Request {
 		System.out.println("2 : Choose The Type Of Passowrd To Be generate ! ");
 		System.out.println("3 : Show The Seeding ! ");
 		System.out.println("4 : Show The Pagination ! ");
+
+		/* said */
+		System.out.println("7 : Enter What You Want ! ");
+
 		String option = sc.nextLine();
 		int choices = Integer.parseInt(option);
 		switch (choices) {
@@ -56,6 +61,20 @@ public class Request {
 				System.out.println("The Page Number Is : " + data.getInfo().getPage());
 				System.out.println("The Seed Is : " + data.getInfo().getSeed());
 				System.out.println("The Version Is : " + data.getInfo().getVersion());
+
+				/*
+				 * said
+				 * 
+				 * 
+				 * 
+				 * 
+				 */
+				System.out.println("The Nationality Is : " + data.getResults().get(0).getNat());
+				System.out.println("The LOGIN Is : " + data.getResults().get(0).getLogin());
+
+//				System.out.println(" Enter Your Own Compination ");
+//				String myCompnation = sc.nextLine();
+//				HttpRequest request6 = (HttpRequest) HttpRequest.newBuilder();
 
 			}
 
@@ -190,6 +209,22 @@ public class Request {
 				}
 
 			}
+
+			/* said */
+		case 7:
+
+			System.out.println("Enter What You Want ");
+			String myChoise7 = sc.nextLine();
+
+			HttpRequest request7 = HttpRequest.newBuilder().uri(URI.create("https://randomuser.me/api/" + myChoise7))
+					.build();
+
+			HttpResponse<String> response7 = client.send(request7, HttpResponse.BodyHandlers.ofString());
+
+			String uglyJsonString7 = response7.body();
+
+			break;
+
 		case 3:
 
 			HttpRequest request6 = HttpRequest.newBuilder().uri(URI.create("https://randomuser.me/api/?seed=foobar"))
@@ -231,5 +266,6 @@ public class Request {
 			}
 
 		}
+
 	}
 }
