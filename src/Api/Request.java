@@ -27,9 +27,10 @@ public class Request {
 			System.out.println("Please Choose An Option ! ");
 			System.out.println("1 : Enter How Many Users To generate ! ");
 			System.out.println("2 : Choose The Type Of Passowrd To Be generate ! ");
-			System.out.println("3 : Choose The Seeding ! ");
-			System.out.println("4 : Choose The Page Number ! ");
-
+			System.out.println("3 : Git Users By Choosing The Seeding ! ");
+			System.out.println("4 : Git Users By Choosing The Page Number ! ");
+			System.out.println("5 : Select The Type Of Information You want To be Included ");
+			System.out.println("6 : Select The Type Of Information You want To be Excluded ");
 			/* said */
 //			System.out.println("7 : Enter What You Want ! ");
 //			/* said */
