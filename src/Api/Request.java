@@ -5,6 +5,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
+import java.util.List;
 import java.util.Scanner;
 
 import com.google.gson.Gson;
@@ -62,27 +63,23 @@ public class Request {
 
 					Gson gs = new Gson();
 					Data data = gs.fromJson(uglyJsonString, Data.class);
-					int num = data.getResults().size();
+					List<Results> resultsList = data.getResults();
+
 //				Gson gson = new GsonBuilder().setPrettyPrinting().create();
 //				JsonParser jp = new JsonParser();
 //				JsonElement je = jp.parse(uglyJsonString);
 //				String prettyJsonString = gson.toJson(je);
 //				System.out.println(prettyJsonString);
-					for (int i = 0; i < num; i++) {
+					for (Results r : resultsList) {
 
-						System.out.println("________________________________________________________");
-
-						System.out.println("The User Name Is : " + data.getResults().get(i).getName().getFirst());
-						System.out.println("The User Gender Is : " + data.getResults().get(i).getGender());
-						System.out
-								.println("The User Date Of Birth Is : " + data.getResults().get(i).getDob().getDate());
+						System.out.println("The User Name Is : " + r.getName().getFirst());
+						System.out.println("The User Gender Is : " + r.getGender());
+						System.out.println("The User Date Of Birth Is : " + r.getDob().getDate());
 						System.out.println("The Number Of Users  Is : " + data.getInfo().getResults());
 						System.out.println("The Page Number Is : " + data.getInfo().getPage());
 						System.out.println("The Seed Is : " + data.getInfo().getSeed());
 						System.out.println("The Version Is : " + data.getInfo().getVersion());
-						System.out.println("The Nationality Is : " + data.getResults().get(i).getNat());
-						System.out.println("The LOGIN Is : " + data.getResults().get(i).getLogin().getPassword());
-						System.out.println("________________________________________________________");
+						System.out.println("The Nationality Is : " + r.getNat());
 
 //				System.out.println(" Enter Your Own Compination ");
 //				String myCompnation = sc.nextLine();
