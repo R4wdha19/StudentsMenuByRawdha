@@ -281,9 +281,74 @@ public class Request {
 					System.out.println("The Pagination Is : " + data.getInfo().getPage());
 
 				}
+				break;
+			case 5:
+				System.out.println("5 : Select The Type Of Information You want To be Included ");
+				String inc = sc.nextLine();
+				HttpRequest request4 = HttpRequest.newBuilder().uri(URI.create("https://randomuser.me/api/?inc=" + inc))
+						.build();
+				HttpResponse<String> response4 = client.send(request4, HttpResponse.BodyHandlers.ofString());
 
+				String uglyJsonString4 = response4.body();
+
+				if (uglyJsonString4.contains("error")) {
+					System.out.println("We have error");
+					Gson gs = new Gson();
+					ErrorHandler errorHandler = gs.fromJson(response4.body(), ErrorHandler.class);
+					System.out.println(errorHandler.getError());
+				} else {
+					Gson gs = new Gson();
+					Data data = gs.fromJson(uglyJsonString4, Data.class);
+					List<Results> resultsList = data.getResults();
+
+					for (Results r : resultsList) {
+
+						System.out.println("The User Name Is : " + r.getName().getFirst());
+						System.out.println("The User Gender Is : " + r.getGender());
+						System.out.println("The User Date Of Birth Is : " + r.getDob().getDate());
+						System.out.println("The Number Of Users  Is : " + data.getInfo().getResults());
+						System.out.println("The Page Number Is : " + data.getInfo().getPage());
+						System.out.println("The Seed Is : " + data.getInfo().getSeed());
+						System.out.println("The Version Is : " + data.getInfo().getVersion());
+						System.out.println("The Nationality Is : " + r.getNat());
+
+					}
+				}
+			case 6:
+				System.out.println("Select The Type Of Information You want To be Excluded ");
+				String exc = sc.nextLine();
+				HttpRequest request1 = HttpRequest.newBuilder().uri(URI.create("https://randomuser.me/api/?inc=" + exc))
+						.build();
+				HttpResponse<String> response1 = client.send(request1, HttpResponse.BodyHandlers.ofString());
+
+				String uglyJsonString1 = response1.body();
+
+				if (uglyJsonString1.contains("error")) {
+					System.out.println("We have error");
+					Gson gs = new Gson();
+					ErrorHandler errorHandler = gs.fromJson(response1.body(), ErrorHandler.class);
+					System.out.println(errorHandler.getError());
+				} else {
+					Gson gs = new Gson();
+					Data data = gs.fromJson(uglyJsonString1, Data.class);
+					List<Results> resultsList = data.getResults();
+
+					for (Results r : resultsList) {
+
+						System.out.println("The User Name Is : " + r.getName().getFirst());
+						System.out.println("The User Gender Is : " + r.getGender());
+						System.out.println("The User Date Of Birth Is : " + r.getDob().getDate());
+						System.out.println("The Number Of Users  Is : " + data.getInfo().getResults());
+						System.out.println("The Page Number Is : " + data.getInfo().getPage());
+						System.out.println("The Seed Is : " + data.getInfo().getSeed());
+						System.out.println("The Version Is : " + data.getInfo().getVersion());
+						System.out.println("The Nationality Is : " + r.getNat());
+
+					}
+				}
+				/* said */
 			}
-			/* said */
 		} while (exit = true);
+
 	}
 }
